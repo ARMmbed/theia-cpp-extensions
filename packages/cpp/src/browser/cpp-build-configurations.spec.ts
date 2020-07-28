@@ -92,9 +92,10 @@ function getManager(): CppBuildConfigurationManager {
  * If `activeBuildConfigName` is not undefined, also create an entry in the
  * storage service representing the saved active build config.
  */
-async function initializeTest(buildConfigurations: CppBuildConfiguration[] | undefined,
-    activeBuildConfigName: string | undefined)
-    : Promise<CppBuildConfigurationManager> {
+async function initializeTest(
+    buildConfigurations: CppBuildConfiguration[] | undefined,
+    activeBuildConfigName: string | undefined
+): Promise<CppBuildConfigurationManager> {
 
     const preferenceService = container.get<PreferenceService>(PreferenceService);
     preferenceService.get = <T>(preferenceName: string, fallback?: T) => {
