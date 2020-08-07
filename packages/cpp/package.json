@@ -1,6 +1,6 @@
 {
   "name": "@theia/cpp",
-  "version": "0.15.0",
+  "version": "0.15.0-mbed-0",
   "description": "Theia - Cpp Extension",
   "dependencies": {
     "@theia/core": "^0.15.0",
