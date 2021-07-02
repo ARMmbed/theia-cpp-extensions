@@ -74,8 +74,8 @@ export class MemoryOptionsWidget extends ReactWidget implements StatefulWidget {
     };
 
     protected settingsDisplayed: Interfaces.SettingsDisplayed = {
-        BYTES_PER_GROUP_FIELD_ID: { label: 'Bytes per group', doRender: true },
-        BYTES_PER_ROW_FIELD_ID: { label: 'Bytes per row', doRender: true },
+        BYTES_PER_GROUP_FIELD_ID: { label: 'Byte per group', doRender: true },
+        BYTES_PER_ROW_FIELD_ID: { label: 'Byte per row', doRender: true },
         ENDIAN_SELECT_ID: { label: 'Endiannes', doRender: false },
         ASCII_TOGGLE_ID: { label: 'ASCII', doRender: true },
     };
