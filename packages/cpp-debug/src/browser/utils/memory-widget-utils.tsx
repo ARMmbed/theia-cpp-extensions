@@ -52,6 +52,7 @@ export namespace Interfaces {
         doUpdateAutomatically: boolean;
         columnsDisplayed: ColumnsDisplayed;
         recentLocationsArray: string[];
+        settingsDisplayed: SettingsDisplayed;
         isFrozen: boolean;
     }
     export interface MoreMemoryOptions {
@@ -104,6 +105,15 @@ export namespace Interfaces {
 
     export interface ColumnsDisplayed {
         [id: string]: Column;
+    }
+
+    export interface Settings {
+        label: string;
+        doRender: boolean;
+    }
+
+    export interface SettingsDisplayed {
+        [id: string]: Settings;
     }
 }
 

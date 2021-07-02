@@ -73,6 +73,13 @@ export class MemoryOptionsWidget extends ReactWidget implements StatefulWidget {
         ascii: { label: 'ASCII', doRender: false },
     };
 
+    protected settingsDisplayed: Interfaces.SettingsDisplayed = {
+        BYTES_PER_GROUP_FIELD_ID: { label: 'Bytes per group', doRender: true },
+        BYTES_PER_ROW_FIELD_ID: { label: 'Bytes per row', doRender: true },
+        ENDIAN_SELECT_ID: { label: 'Endiannes', doRender: false },
+        ASCII_TOGGLE_ID: { label: 'ASCII', doRender: true },
+    };
+
     protected byteSize = 8;
 
     protected bytesPerGroup = 1;
@@ -304,7 +311,8 @@ export class MemoryOptionsWidget extends ReactWidget implements StatefulWidget {
     protected renderByteDisplayGroup(): React.ReactNode {
         return (
             <div className='t-mv-group settings-group'>
-                <MWSelect
+                {this.settingsDisplayed.doRender}
+                {/* <MWSelect
                     id='byte-size-select'
                     label='Byte Size'
                     value={this.byteSize.toString()}
@@ -337,7 +345,7 @@ export class MemoryOptionsWidget extends ReactWidget implements StatefulWidget {
                     label='Columns'
                     items={this.getOptionalColumns()}
                     onSelectionChanged={this.handleColumnSelectionChange}
-                />
+                /> */}
             </div>
         );
     }
@@ -552,6 +560,7 @@ export class MemoryOptionsWidget extends ReactWidget implements StatefulWidget {
             endianness: this.endianness,
             doDisplaySettings: this.doDisplaySettings,
             columnsDisplayed: this.columnsDisplayed,
+            settingsDisplayed: this.settingsDisplayed,
             recentLocationsArray: this.recentLocations.values,
             isFrozen: !this.doUpdateAutomatically,
             doUpdateAutomatically: this.doUpdateAutomatically,
@@ -571,6 +580,7 @@ export class MemoryOptionsWidget extends ReactWidget implements StatefulWidget {
         if (oldState.columnsDisplayed) {
             this.columnsDisplayed = oldState.columnsDisplayed;
         }
+        this.settingsDisplayed = oldState.settingsDisplayed ?? this.settingsDisplayed;
     }
 
     protected doShowMemoryErrors = (doClearError = false): void => {
