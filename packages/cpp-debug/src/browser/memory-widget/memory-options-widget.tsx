@@ -74,10 +74,10 @@ export class MemoryOptionsWidget extends ReactWidget implements StatefulWidget {
     };
 
     protected settingsDisplayed: Interfaces.SettingsDisplayed = {
-        BYTES_PER_GROUP_FIELD_ID: { label: 'Byte per group', doRender: true },
-        BYTES_PER_ROW_FIELD_ID: { label: 'Byte per row', doRender: true },
-        ENDIAN_SELECT_ID: { label: 'Endiannes', doRender: false },
-        ASCII_TOGGLE_ID: { label: 'ASCII', doRender: true },
+        BYTES_PER_GROUP_FIELD_ID: true,
+        BYTES_PER_ROW_FIELD_ID: true,
+        ENDIAN_SELECT_ID: false,
+        ASCII_TOGGLE_ID: true,
     };
 
     protected byteSize = 8;
@@ -311,8 +311,7 @@ export class MemoryOptionsWidget extends ReactWidget implements StatefulWidget {
     protected renderByteDisplayGroup(): React.ReactNode {
         return (
             <div className='t-mv-group settings-group'>
-                {this.settingsDisplayed.doRender}
-                {/* <MWSelect
+                <MWSelect
                     id='byte-size-select'
                     label='Byte Size'
                     value={this.byteSize.toString()}
@@ -345,7 +344,7 @@ export class MemoryOptionsWidget extends ReactWidget implements StatefulWidget {
                     label='Columns'
                     items={this.getOptionalColumns()}
                     onSelectionChanged={this.handleColumnSelectionChange}
-                /> */}
+                />
             </div>
         );
     }

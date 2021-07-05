@@ -107,13 +107,8 @@ export namespace Interfaces {
         [id: string]: Column;
     }
 
-    export interface Settings {
-        label: string;
-        doRender: boolean;
-    }
-
     export interface SettingsDisplayed {
-        [id: string]: Settings;
+        [id: string]: boolean;
     }
 }
 
