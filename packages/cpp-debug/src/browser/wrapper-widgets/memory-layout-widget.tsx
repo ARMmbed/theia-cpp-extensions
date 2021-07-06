@@ -87,6 +87,7 @@ export class MemoryLayoutWidget extends Panel implements Disposable, Application
 
     dispose(): void {
         this.toDispose.dispose();
+        super.dispose();
     }
 
     protected dockPanelHoldsWidgets(): boolean {
