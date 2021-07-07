@@ -73,13 +73,6 @@ export class MemoryOptionsWidget extends ReactWidget implements StatefulWidget {
         ascii: { label: 'ASCII', doRender: false },
     };
 
-    protected settingsDisplayed: Interfaces.SettingsDisplayed = {
-        BYTES_PER_GROUP_FIELD_ID: true,
-        BYTES_PER_ROW_FIELD_ID: true,
-        ENDIAN_SELECT_ID: false,
-        ASCII_TOGGLE_ID: true,
-    };
-
     protected byteSize = 8;
 
     protected bytesPerGroup = 1;
@@ -559,7 +552,6 @@ export class MemoryOptionsWidget extends ReactWidget implements StatefulWidget {
             endianness: this.endianness,
             doDisplaySettings: this.doDisplaySettings,
             columnsDisplayed: this.columnsDisplayed,
-            settingsDisplayed: this.settingsDisplayed,
             recentLocationsArray: this.recentLocations.values,
             isFrozen: !this.doUpdateAutomatically,
             doUpdateAutomatically: this.doUpdateAutomatically,
@@ -579,7 +571,6 @@ export class MemoryOptionsWidget extends ReactWidget implements StatefulWidget {
         if (oldState.columnsDisplayed) {
             this.columnsDisplayed = oldState.columnsDisplayed;
         }
-        this.settingsDisplayed = oldState.settingsDisplayed ?? this.settingsDisplayed;
     }
 
     protected doShowMemoryErrors = (doClearError = false): void => {
